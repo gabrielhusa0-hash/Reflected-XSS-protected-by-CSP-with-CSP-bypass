@@ -24,6 +24,6 @@ Odeslání do Repeateru (Ctrl + R): V Burp Suite jsem zachycený požadavek ozna
 
 Nalezení tokenu v Response: Na druhé straně (v odpovědi serveru / Response) jsem se podíval do třetího řádku a v chybové hlášce jsem uviděl hodnotu začínající na ?token=, která prozrazovala nastavení CSP.
 
-Úprava URL a bypass: Vyplul jsem zpět, v URL adrese jsem promazal přebytečnou část, nechal jen základ a dopsal jsem tam získaný token s direktivou pro povolení skriptů (&token=;script-src-elem %27unsafe-inline%27)
+Úprava URL a bypass: V  URL adrese jsem promazal přebytečnou část, nechal jen základ a dopsal jsem tam získaný token s direktivou pro povolení skriptů (&token=;script-src-elem %27unsafe-inline%27)
 
 Provedení skriptu a výhra: Po obnovení stránky (nebo odeslání) se na mě ukázalo vyskakovací okno s alertem, stránka mě hodila zpět a lab byl úspěšně vyřešen.
