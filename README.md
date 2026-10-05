@@ -7,7 +7,7 @@
 Aplikace byla chráněna pomocí Content Security Policy (CSP), která běžně blokuje spouštění skriptů (např. klasických `<script>alert(1)</script>`). Cílem bylo najít slabinu v konfiguraci CSP nebo v parametrech logování/chybových hlášení a CSP obejít.
 
 # Proč to fungovalo?
-Využitím funkce Burp Suite (Intercept) jsem zachytil HTTP požadavek, podstrčil vlastní XSS payload (`<script>alert(1)</script>`) do vyhledávacího pole a odeslal ho serveru přes funkci **Forward**. Aplikace následně v chybové hlášce nebo direktivě CSP (obsahující parametr `token` a `unsafe-inline`) reflektovala direktivu zpět. Úpravou URL adresy a přidáním správného tokenu se mi podařilo CSP ochranu zneškodnit a spustit skript v kontextu prohlížeče[cite: 3, 4].
+Využitím funkce Burp Suite (Intercept) jsem zachytil HTTP požadavek, podstrčil vlastní XSS payload (`<script>alert(1)</script>`) do vyhledávacího pole a odeslal ho serveru přes funkci **Forward**. Aplikace následně v chybové hlášce nebo direktivě CSP (obsahující parametr `token` a `unsafe-inline`) reflektovala direktivu zpět. Úpravou URL adresy a přidáním správného tokenu se mi podařilo CSP ochranu zneškodnit a spustit skript v kontextu prohlížeče.
 
 ## Použitý payload:
 > **Pozor:** Místo `YOUR-LAB-ID` si v URL adrese dosaď své vlastní ID aktivního labu z PortSwiggeru.
